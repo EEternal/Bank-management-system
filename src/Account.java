@@ -38,7 +38,7 @@ public
 	}
 	abstract void deposit(final Date date, double amount, final String desc);
 	abstract void withdraw(final Date date, double amount, final String desc);
-	abstract void settle(final Date date);
+	abstract void settle(final Date date) throws Exception;
 	abstract void show();
 	//{
 		//System.out.print(id+"\tBalance: "+balance);
@@ -80,7 +80,7 @@ public
 //	System.out.println("Total: "+getTotal());
 //}
 	
-	public static void main(String args[]){
+	public static void main(String args[]) throws Exception{
 		Date date = new Date(2008, 11, 1);
 		//int x = 0;
 		ArrayList<Account> accounts = new ArrayList<Account>();

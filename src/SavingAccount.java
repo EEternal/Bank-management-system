@@ -24,7 +24,7 @@ public
 			acc.change(date, getBalance());
 		}
 	}
-	void settle(Date date){
+	void settle(Date date) throws Exception{
 		if (date.getMonth()==1){
 			double interest = acc.getSum(date)*rate/date.distance(new Date(date.getYear()-1, 1, 1));
 			if (interest!=0)
@@ -34,7 +34,6 @@ public
 	}
 	@Override
 	void show() {
-		// TODO Auto-generated method stub
 		System.out.print(id+"\tBalance: "+balance);
 	} 
 

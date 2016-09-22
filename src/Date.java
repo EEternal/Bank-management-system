@@ -1,4 +1,6 @@
-//import java.util.Scanner;
+//import javax.management.RuntimeErrorException;
+
+import java.util.Scanner;
 public class Date {
 private
 	int year;
@@ -7,15 +9,16 @@ private
 	int totalDays;
 	final int DAYS_BEFORE_MONTH[]={0, 31, 59, 90, 120, 151, 181, 212, 243, 273, 304, 334, 365};
 public
-	Date(int year, int month, int day){
+	Date(int year, int month, int day) throws Exception{
 		this.year = year;
 		this.month = month;
 		this.day = day;
 		if (day<=0 || day>getMaxDay()){
-			System.out.println("Invalid date: ");
-			show();
-			System.out.println();
-			System.exit(1);
+			throw new Exception("Invalid date: ");
+//			System.out.println("Invalid date: ");
+//			show();
+//			System.out.println();
+//			System.exit(1);
 		}
 		int years = year-1;
 		totalDays = years*365+years/4-years/100+years/400+DAYS_BEFORE_MONTH[month-1]+day;
@@ -23,7 +26,7 @@ public
 			totalDays++;
 	}
 
-//	static Date read(){
+//	static Date read() throws Exception{
 //		int year, month, day;
 //		String c1, c2;
 //		Scanner sc = new Scanner(System.in);
@@ -33,6 +36,9 @@ public
 //		c2 = sc.next();
 //		day = sc.nextInt();
 //		sc.close();
+//		if (c1!="-" || c2!="-") {
+//			throw new Exception("Bad time format");
+//		}
 //		return new Date(year, month, day);
 //	}
 	
