@@ -159,7 +159,7 @@ public
 //					query(date1, date2);
 //					break;
 			}
-		}while(cmd!="e");
+		}while(!cmd.equals("e"));
 		sc.close();
 	}	
 }
